@@ -2,7 +2,7 @@
     height: 100vh;
 }
 
-.menu-icon{
+.menu-icon {
     cursor: pointer;
 }
 
@@ -11,14 +11,15 @@
 }
 
 .logo-container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0px 16px;
     min-height: 56px;
     display: flex;
     align-items: center;
 }
 
-mat-toolbar, mat-toolbar-row {
+mat-toolbar,
+mat-toolbar-row {
     min-height: 56px;
     height: 56px;
 }
@@ -27,7 +28,8 @@ mat-toolbar, mat-toolbar-row {
     list-style-type: none;
     padding-left: 0px;
     margin: 0;
-    li{
+
+    li {
         padding: 0px 16px;
         height: 48px;
         display: flex;
@@ -35,11 +37,19 @@ mat-toolbar, mat-toolbar-row {
         cursor: pointer;
 
         &:hover {
-            background-color: rgba(0,0,0, 0.1);
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        &:focus {
+            outline: none;
         }
 
         mat-icon {
             margin-right: 16px;
         }
     }
+}
+
+.router-container {
+    padding: 16px 56px;
 }
