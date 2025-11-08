@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.pt-5 {
+    padding-top: 5px;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.whole-width {
+    width: 100%;
+}
+
+.dialog-container {
+    position: relative;
+}

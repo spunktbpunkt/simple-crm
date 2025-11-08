@@ -2,6 +2,7 @@
 
 
 
-<button class="add-button" mat-fab color="primary">
+<button (click)="openDialog()" class="add-button" mat-fab color="primary" matButton="elevated" #tooltip="matTooltip"
+  matTooltip="Info about the action" matTooltipPosition="above" matTooltipHideDelay="1000">
   <mat-icon>add</mat-icon>
 </button>
