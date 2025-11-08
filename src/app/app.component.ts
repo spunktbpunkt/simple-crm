@@ -12,6 +12,7 @@ import { AsyncPipe } from '@angular/common';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatFormFieldModule,
     MatDatepickerModule,
     AsyncPipe,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
