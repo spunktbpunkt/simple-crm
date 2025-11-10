@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -14,6 +14,7 @@ import { inject } from '@angular/core';
   selector: 'app-dialog-edit-user',
   standalone: true,
   imports: [
+    MatDialogTitle,
     MatButtonModule,
     MatIconModule,
     MatInputModule,
@@ -37,20 +38,20 @@ export class DialogEditUserComponent {
     public dialog: MatDialogRef<DialogEditUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.user = { ...data.user }; // Kopie der Userdaten
+    this.user = { ...data.user };
     this.userId = data.userId;
 
-if (this.user.birthDate && typeof this.user.birthDate === 'number') {
-  this.user.birthDate = new Date(this.user.birthDate);
-}
+    if (this.user.birthDate && typeof this.user.birthDate === 'number') {
+      this.user.birthDate = new Date(this.user.birthDate);
+    }
   }
 
   async saveUser() {
     this.loading = true;
 
-  if (this.user.birthDate instanceof Date) {
-    this.user.birthDate = this.user.birthDate.getTime();
-  }
+    if (this.user.birthDate instanceof Date) {
+      this.user.birthDate = this.user.birthDate.getTime();
+    }
 
     const docRef = doc(this.firestore, 'users', this.userId);
     await updateDoc(docRef, this.user);

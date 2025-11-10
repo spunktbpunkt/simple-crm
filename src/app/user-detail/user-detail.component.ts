@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-detail',
@@ -25,7 +26,7 @@ export class UserDetailComponent {
   user$!: Observable<User | undefined>;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     public dialog: MatDialog
   ) { }
 
@@ -39,23 +40,27 @@ export class UserDetailComponent {
 
   openDialog() {
   }
-  
+
   openAddressDialog() {
-    
+
   }
-  
+
+
 editUserDetail() {
-  this.user$.subscribe(user => {
+  this.user$.pipe(take(1)).subscribe(user => {
     if (!user) return;
     this.dialog.open(DialogEditUserComponent, {
-      data: { userId: this.userId, user: user }
+      data: { userId: this.userId, user },
     });
   });
 }
 
-  
-  editAddressDetail() {
-    
-    this.dialog.open(DialogEditAddressComponent);
-  }
+editAddressDetail() {
+  this.user$.pipe(take(1)).subscribe(user => {
+    if (!user) return;
+    this.dialog.open(DialogEditAddressComponent, {
+      data: { userId: this.userId, user },
+    });
+  });
+}
 }

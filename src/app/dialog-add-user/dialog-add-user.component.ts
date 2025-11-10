@@ -47,7 +47,7 @@ export class DialogAddUserComponent {
   async saveUser() {
     this.loading = true;
     if (this.birthDate) {
-      this.user.birthDate = this.birthDate.getTime(); // 👈 timestamp speichern
+      this.user.birthDate = this.birthDate.getTime();
     }
 
     const userCollection = collection(this.firestore, 'users');

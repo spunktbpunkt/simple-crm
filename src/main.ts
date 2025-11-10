@@ -4,24 +4,44 @@ import { appConfig } from './app/app.config';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import {
+  MAT_DATE_FORMATS,
+  DateAdapter,
+  NativeDateAdapter,
+} from '@angular/material/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-
-// 👇 NEU: Für deutsches Datumsformat
-import { LOCALE_ID } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
+import { LOCALE_ID, Injectable } from '@angular/core';
+import { registerLocaleData, formatDate } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
-// 🇩🇪 deutsches Locale aktivieren
 registerLocaleData(localeDe);
+
+@Injectable()
+export class GermanDateAdapter extends NativeDateAdapter {
+  override format(date: Date, displayFormat: Object): string {
+    if (!date) return '';
+    return formatDate(date, 'dd.MM.yyyy', this.locale);
+  }
+}
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'dd.MM.yyyy',
+  },
+  display: {
+    dateInput: 'dd.MM.yyyy',
+    monthYearLabel: 'MMMM yyyy',
+    dateA11yLabel: 'dd.MM.yyyy',
+    monthYearA11yLabel: 'MMMM yyyy',
+  },
+};
 
 bootstrapApplication(AppComponent, {
   ...appConfig,
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    provideNativeDateAdapter(), // wichtig für Material Datepicker
     provideFirebaseApp(() =>
       initializeApp({
         projectId: 'simple-crm-aebf2',
@@ -34,8 +54,9 @@ bootstrapApplication(AppComponent, {
     ),
     provideFirestore(() => getFirestore()),
 
-    // 👇 NEU: deutsches Datumsformat aktivieren
     { provide: LOCALE_ID, useValue: 'de-DE' },
+    { provide: DateAdapter, useClass: GermanDateAdapter },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
 
     ...(appConfig.providers || []),
   ],
