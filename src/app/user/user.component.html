@@ -1,8 +1,20 @@
 <mat-card>
-  <table>
-    <th>Name</th>
-    <th>E-Mail</th>
-    <th>City</th>
+  <table class="user-table">
+    <tr>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>City</th>
+    </tr>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{user.firstName}}</td>
+      <td>{{user.zipCode}}</td>
+      <td>{{user.city}}</td>
+    </tr>
+    <!-- <tr>
+      <td>fasd</td>
+      <td>asdfg</td>
+      <td>asdfsdf</td>
+    </tr> -->
   </table>
 </mat-card>
 
