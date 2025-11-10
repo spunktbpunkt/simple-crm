@@ -5,16 +5,11 @@
       <th>E-Mail</th>
       <th>City</th>
     </tr>
-    <tr *ngFor="let user of users$ | async">
-      <td>{{user.firstName}}</td>
-      <td>{{user.zipCode}}</td>
-      <td>{{user.city}}</td>
+    <tr *ngFor="let user of allUsers$ | async" [routerLink]="['/user/' + user.customIdName]">
+      <td>{{user.firstName}} {{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.zipCode}} {{user.city}}</td>
     </tr>
-    <!-- <tr>
-      <td>fasd</td>
-      <td>asdfg</td>
-      <td>asdfsdf</td>
-    </tr> -->
   </table>
 </mat-card>
 

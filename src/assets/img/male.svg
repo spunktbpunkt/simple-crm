@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0 0 2e3 2e3"
+   id="svg4"
+   sodipodi:docname="male.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.5865"
+     inkscape:cx="999.14749"
+     inkscape:cy="1000"
+     inkscape:window-width="3424"
+     inkscape:window-height="1353"
+     inkscape:window-x="1998"
+     inkscape:window-y="78"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <g
+     stroke-width="18.744"
+     id="g4">
+    <path
+       d="m1412.4 529.37c28.919-214.1-80.8-504.53-385.71-510.84-395.64-8.1851-469.2 299.13-449.15 528.57 24.424 279.42 784.03 358.49 834.86-17.718z"
+       fill="#502d16"
+       id="path1" />
+    <path
+       d="m52.359 1890c44.209-131.62 63.795-375.93 215.99-457.51l705.95-162.84 737.31 151.1c129.74 50.216 191.06 322.37 253.09 476.57-40.4 31.272-75.222 77.585-123.28 88.245h-1673c-54.336-21.727-81.847-60.807-116.06-95.564z"
+       fill="#025"
+       id="path2" />
+    <path
+       d="m766.49 1101.1c3.7546 98.468-17.889 155.22-60.672 238.68 166.6 330.13 598.42 159.95 587.15-9.3067l-47.783-281.5-478.7 52.129z"
+       fill="#fca"
+       id="path3" />
+    <path
+       d="m1375.6 572.25c-9.2064 155.64-13.25 345.41-45.581 501.05 0 0-147.01 144.08-229.08 183.35s-105.03 33.946-182.36-1.228c-77.316-35.178-256.43-172.29-256.43-172.29-76.973-336.5-103.31-689.19 239.33-877.04l101.45 129.9c37.548 48.063 202.36 122.79 264.62 58.701 49.137-50.58 79.139 134.9 108.04 177.56z"
+       fill="#ffd7b6"
+       id="path4" />
+  </g>
+</svg>

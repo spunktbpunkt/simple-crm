@@ -1,0 +1,36 @@
+<div class="user-detail-container" *ngIf="user$ | async as user">
+    <button class="pin-right-top" mat-icon-button [matMenuTriggerFor]="userMenu"><mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-card class="user-detail-header">
+
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item (click)="editUserDetail()">Edit</button>
+        </mat-menu>
+        <div>
+            <img src="../../assets/img/male.svg" alt="">
+            <div>
+                <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+                {{ user.email }}
+            </div>
+        </div>
+    </mat-card>
+
+
+    <mat-card>
+        <button class="pin-right-top" mat-icon-button [matMenuTriggerFor]="addressMenu"
+            (click)="openAddressDialog()"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #addressMenu="matMenu">
+            <button mat-menu-item (click)="editAddressDetail()">Edit</button>
+        </mat-menu>
+
+        <mat-card-header>
+            <mat-card-title>Address</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            {{ user.street }}
+            <br>
+            {{ user.zipCode }} {{ user.city }}
+        </mat-card-content>
+    </mat-card>
+
+</div>

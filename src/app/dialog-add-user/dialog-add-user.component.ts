@@ -41,11 +41,14 @@ export class DialogAddUserComponent {
   firestore: Firestore = inject(Firestore);
   loading = false;
 
-  constructor(private dialog: MatDialogRef<DialogAddUserComponent>) { }
+  constructor(public dialog: MatDialogRef<DialogAddUserComponent>) { }
+
 
   async saveUser() {
     this.loading = true;
-    this.user.birthDate = this.birthDate.getTime();
+    if (this.birthDate) {
+      this.user.birthDate = this.birthDate.getTime(); // 👈 timestamp speichern
+    }
 
     const userCollection = collection(this.firestore, 'users');
     await addDoc(userCollection, this.user.toJSON());

@@ -10,6 +10,7 @@ import { MatCard } from '@angular/material/card';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgFor } from '@angular/common';
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-user',
@@ -21,25 +22,28 @@ import { AsyncPipe, NgFor } from '@angular/common';
     MatDialogModule,
     MatCard,
     AsyncPipe,
-    NgFor
-  ],
+    NgFor,
+    RouterLink,
+    RouterLinkActive
+],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
   user: User = new User();
   firestore: Firestore = inject(Firestore);
-  users$!: Observable<User[]>;
+  allUsers$!: Observable<User[]>;
+  // allUsers = []
 
-  constructor(public dialog: MatDialog,) {
+  constructor(public dialog: MatDialog) {
     this.user.firstName
   }
 
   ngOnInit(): void {
     const userCollection = collection(this.firestore, 'users');
-    this.users$ = collectionData(userCollection, { idField: 'id' }) as Observable<User[]>;
-    this.users$.subscribe((changes) => {
-      console.log('Received users from Firestore:', changes);
+    this.allUsers$ = collectionData(userCollection, { idField: 'customIdName'}) as Observable<User[]>;
+    this.allUsers$.subscribe((changes: any) => {
+      console.log(changes)
     });
   }
 
